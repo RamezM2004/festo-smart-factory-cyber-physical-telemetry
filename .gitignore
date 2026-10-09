@@ -1,0 +1,20 @@
+# Data archives & heavy CSVs
+*.csv
+!docs/*.csv
+*.pkl
+*.json
+!paper/**/*.json
+*.log
+__pycache__/
+*.pyc
+venv/
+.venv/
+.idea/
+.vscode/
+# TeX build artifacts
+*.aux
+*.log
+*.out
+*.bbl
+*.blg
+*.synctex.gz

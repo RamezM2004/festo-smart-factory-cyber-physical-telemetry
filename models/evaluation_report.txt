@@ -1,0 +1,49 @@
+Smart Maintenance Fault Classifier - Evaluation Report
+============================================================
+
+Best Model: XGBoost
+Test Set Size: 812 windows
+Window Size: 5 seconds
+Classes: FM01_PRESSURE_DROP, FM01_PRESSURE_LOW01, FM02_FLOW_RESTRICT, FM03_FLOW_BLOCK, FM04_OVERLOAD, FM05_IDLE_NO_LOAD, FM06_SPEED_REDUCTION, FM07_PHASE_IMBALANCE, FM08_SENSOR_OBSTRUCT, FM09_INTERMITTENT, FM10_OVERPRESSURE, NORMAL, STANDBY
+
+-- Random Forest --
+                      precision    recall  f1-score   support
+
+  FM01_PRESSURE_DROP       1.00      1.00      1.00       295
+ FM01_PRESSURE_LOW01       1.00      1.00      1.00       142
+  FM02_FLOW_RESTRICT       1.00      1.00      1.00         5
+     FM03_FLOW_BLOCK       1.00      1.00      1.00         4
+       FM04_OVERLOAD       1.00      1.00      1.00         5
+   FM05_IDLE_NO_LOAD       1.00      1.00      1.00         5
+FM06_SPEED_REDUCTION       1.00      1.00      1.00       114
+FM07_PHASE_IMBALANCE       1.00      1.00      1.00         5
+FM08_SENSOR_OBSTRUCT       1.00      1.00      1.00         4
+   FM09_INTERMITTENT       0.56      1.00      0.71         5
+   FM10_OVERPRESSURE       1.00      1.00      1.00         5
+              NORMAL       1.00      0.98      0.99       214
+             STANDBY       1.00      1.00      1.00         9
+
+            accuracy                           1.00       812
+           macro avg       0.97      1.00      0.98       812
+        weighted avg       1.00      1.00      1.00       812
+
+-- XGBoost --
+                      precision    recall  f1-score   support
+
+  FM01_PRESSURE_DROP       1.00      1.00      1.00       295
+ FM01_PRESSURE_LOW01       1.00      1.00      1.00       142
+  FM02_FLOW_RESTRICT       1.00      1.00      1.00         5
+     FM03_FLOW_BLOCK       1.00      1.00      1.00         4
+       FM04_OVERLOAD       1.00      1.00      1.00         5
+   FM05_IDLE_NO_LOAD       1.00      1.00      1.00         5
+FM06_SPEED_REDUCTION       1.00      1.00      1.00       114
+FM07_PHASE_IMBALANCE       1.00      1.00      1.00         5
+FM08_SENSOR_OBSTRUCT       1.00      1.00      1.00         4
+   FM09_INTERMITTENT       1.00      1.00      1.00         5
+   FM10_OVERPRESSURE       1.00      1.00      1.00         5
+              NORMAL       1.00      1.00      1.00       214
+             STANDBY       1.00      1.00      1.00         9
+
+            accuracy                           1.00       812
+           macro avg       1.00      1.00      1.00       812
+        weighted avg       1.00      1.00      1.00       812
