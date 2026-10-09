@@ -136,17 +136,44 @@ Real-Time Diagnostic Stream (Fault ID + Confidence + Maintenance Action)
 
 ---
 
-## 6. Repository Structure
+## 6. Sample Telemetry & Master Tag Reference Guide
+
+### Real Factory Data Samples (`data/`)
+To enable immediate reproducibility without downloading multi-gigabyte archives, sample production telemetry files from the GJU Festo CP Factory are included in [`data/`](data/):
+* **[`sample_energy_telemetry_run3.csv`](data/sample_energy_telemetry_run3.csv)**: 883 seconds of continuous 1.0 Hz thermodynamic channels (3-phase electrical power, airflow surges, and line pressure) during pristine 8-workpiece Run 3.
+* **[`sample_plc_limit_switches_asrs_run3.csv`](data/sample_plc_limit_switches_asrs_run3.csv)**: Discrete boolean limit switches polled via OPC UA from the ASRS warehouse PLC (tracing the 16 crane motions and 8 pallet returns).
+* **[`sample_plc_limit_switches_all_stations.csv`](data/sample_plc_limit_switches_all_stations.csv)**: Multi-station limit switch test file across all four automated cells (ASRS, Magazine, Muscle Press, and Robot Assembly).
+
+### Master Sensor & Tag Mapping Reference (`docs/`)
+A complete reference detailing all 546 OPC UA nodes, IEC 61131-3 naming syntax, and hardware manual citations is provided in:
+* **[Master Sensor and Tag Mapping Guide (Markdown)](docs/Festo_CP_Factory_Sensor_and_Tag_Mapping_Guide.md)**
+* **[Master Sensor and Tag Mapping Guide (Word .docx)](docs/Festo_CP_Factory_Sensor_and_Tag_Mapping_Guide.docx)**
+
+---
+
+## 7. Repository Structure
 
 ```text
 festo-smart-factory-cyber-physical-telemetry/
 ├── paper/
 │   ├── main.tex                             # Complete IEEE Transactions manuscript draft
-│   ├── figures/
-│   │   ├── fig1_mes_cross_validation_gantt.png
-│   │   ├── fig2_asrs_and_pallet_dynamics.png
-│   │   └── fig3_energy_thermodynamic_envelope.png
-│   └── ...
+│   └── figures/
+│       ├── fig1_mes_cross_validation_gantt.png
+│       ├── fig2_asrs_and_pallet_dynamics.png
+│       └── fig3_energy_thermodynamic_envelope.png
+├── data/
+│   ├── sample_energy_telemetry_run3.csv     # 1.0 Hz 3-phase power & pneumatic flow/pressure
+│   ├── sample_plc_limit_switches_asrs_run3.csv # Discrete reed switches & crane flags
+│   ├── sample_plc_limit_switches_all_stations.csv # Multi-station synchronized limit switches
+│   └── README.md                            # Telemetry column descriptions
+├── docs/
+│   ├── Festo_CP_Factory_Sensor_and_Tag_Mapping_Guide.md # Full 546-node tag mapping reference
+│   ├── Festo_CP_Factory_Sensor_and_Tag_Mapping_Guide.docx
+│   ├── 01_fmea_table.csv                    # 10 passive failure modes FMEA table
+│   ├── data_collection_protocol.md          # RASS lab recording protocol
+│   ├── mpress_data_collection_protocol.md   # Mpress severity-graduated protocol
+│   ├── GJU_CORRECTED_NETWORK_MAP.md         # 13-station network & IP addressing plan
+│   └── STUDY_1_RESULTS.md                   # Full empirical report for Study 1
 ├── src/
 │   ├── study1_reconstruction.py             # Tri-layer Gantt & Little's Law extraction
 │   ├── 02_build_dataset.py                  # Multi-station sliding window dataset builder
@@ -176,7 +203,7 @@ festo-smart-factory-cyber-physical-telemetry/
 
 ---
 
-## 7. How to Run & Reproduce
+## 8. How to Run & Reproduce
 
 ### Environment Setup
 ```bash
@@ -203,7 +230,7 @@ python src/06_cross_station_analysis.py
 
 ---
 
-## 8. Authors & Citation
+## 9. Authors & Citation
 
 ```bibtex
 @article{elmoaqet2026noninvasive,

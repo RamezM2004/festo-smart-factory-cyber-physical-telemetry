@@ -1,6 +1,7 @@
-# Data archives & heavy CSVs
+# Heavy data archives
 *.csv
 !docs/*.csv
+!data/*.csv
 *.pkl
 *.json
 !paper/**/*.json
